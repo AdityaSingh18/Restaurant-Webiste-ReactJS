@@ -14,12 +14,12 @@ const CartProvider = props=>{
     const removeItemFromCartHandler = id =>{}
 
     const cartContext = {
-        items:[],
+        items:items,
         totalAmount:0,
         addItem:addItemCartHandler,
         removeItem:removeItemFromCartHandler
     }
-    console.log(items)
+    console.log(cartContext.items)
     return(
 
         <CartContext.Provider value={cartContext}>
