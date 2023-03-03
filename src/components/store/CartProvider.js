@@ -11,11 +11,26 @@ const CartProvider = props=>{
         updateItems([...items,item])
     };
 
-    const removeItemFromCartHandler = id =>{}
-
+    const removeItemFromCartHandler = id => {
+        
+        const itemIndex = items.findIndex(item => item.id === id);
+        
+        
+        if (itemIndex === -1) {
+          return;
+        }
+    
+        const updatedItems = [...items];
+        updatedItems.splice(itemIndex, 1);
+    
+        
+        updateItems(updatedItems);
+      };
+    
     const cartContext = {
         items:items,
         totalAmount:0,
+        totalQty:0,
         addItem:addItemCartHandler,
         removeItem:removeItemFromCartHandler
     }
